@@ -1,5 +1,5 @@
 # Popular Movies
-Popular Movies is an Android app that displays a list of popular and top-rated movies using The Movie Database (TMDb) API. The app allows users to view details of each movie including title and overview. Users can favorite a movie and remove from the favorites list
+Popular Movies is a web app that displays a list of popular and top-rated movies using The Movie Database (TMDb) API. The app allows users to view details of each movie including title and overview. Users can favorite a movie and remove from the favorites list
 
 ## Features
 - View a list of popular and top-rated movies
