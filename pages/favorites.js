@@ -51,7 +51,7 @@ function Home() {
       >
         {favorites.map((favorite) => (
           <div key={favorite.firebaseKey}>
-            <MovieCard movieObj={{ title: favorite.title, overview: favorite.overview }} handleSubmit={(e) => handleSubmit(e, favorite.firebaseKey)} />
+            <MovieCard movieObj={{ title: favorite.title, overview: favorite.overview, isFavorite: favorite.isFavorite }} handleSubmit={(e) => handleSubmit(e, favorite.firebaseKey)} />
           </div>
         ))}
       </div>

@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Card, Button } from 'react-bootstrap';
+import {
+  Card, Button, Overlay, Tooltip,
+} from 'react-bootstrap';
 
 export default function MovieCard({ movieObj, handleSubmit }) {
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+  const handleChange = (e) => {
+    handleSubmit(e);
+    setShow(!show);
+  };
+
   return (
     <>
       <Card
@@ -13,7 +23,22 @@ export default function MovieCard({ movieObj, handleSubmit }) {
           alignContent: 'center',
         }}
       >
-        <Button onClick={handleSubmit}>Favorite</Button>
+        {movieObj.isFavorite ? (
+          <Button variant="danger" onClick={(e) => handleChange(e)}>
+            Remove
+          </Button>
+        ) : (
+          <Button variant="primary" ref={target} onClick={(e) => handleChange(e)}>
+            Favorite
+          </Button>
+        )}
+        <Overlay target={target.current} show={show} placement="top">
+          {(props) => (
+            <Tooltip id="overlay-example" {...props}>
+              Added to Favorites
+            </Tooltip>
+          )}
+        </Overlay>
         <h5>{movieObj.title}</h5>
         <ul>
           <li>{movieObj.overview}</li>
@@ -27,7 +52,9 @@ MovieCard.propTypes = {
   movieObj: PropTypes.shape({
     title: PropTypes.string,
     overview: PropTypes.string,
+    isFavorite: PropTypes.bool,
   }).isRequired,
-  // eslint-disable-next-line react/require-default-props
-  handleSubmit: PropTypes.func,
+  handleSubmit: PropTypes.shape({
+    handleSubmit: PropTypes.func,
+  }).isRequired,
 };

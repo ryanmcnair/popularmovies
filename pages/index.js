@@ -44,7 +44,7 @@ function Home() {
       uid: user.uid,
     };
     addFavorite(payload).then(({ name }) => {
-      const patchPayload = { firebaseKey: name };
+      const patchPayload = { firebaseKey: name, isFavorite: true };
       updateFavorite(patchPayload);
     });
 
@@ -72,8 +72,8 @@ function Home() {
         }}
       >
         {movies.map((movie) => (
-          <div key={movie.firebaseKey}>
-            <MovieCard movieObj={{ title: movie.title, overview: movie.overview }} handleSubmit={(e) => handleSubmit(e, movie.title, movie.overview)} />
+          <div key={movie.id}>
+            <MovieCard movieObj={{ title: movie.title, overview: movie.overview, isFavorite: false }} handleSubmit={(e) => handleSubmit(e, movie.title, movie.overview)} />
           </div>
         ))}
       </div>
