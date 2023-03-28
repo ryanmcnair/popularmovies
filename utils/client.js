@@ -16,4 +16,9 @@ if (!firebase.apps.length) {
   firebase.initializeApp(clientCredentials);
 }
 
-export { firebase, clientCredentials };
+const auth = firebase.auth();
+const db = firebase.database();
+
+export {
+  firebase, clientCredentials, auth, db,
+};
