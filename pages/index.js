@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import 'firebase.js';
+import '../utils/client';
 import { useAuth } from '../utils/context/authContext';
 import getMovies from '../utils/data/movies';
 import { getFavorites, addFavorite, updateFavorite } from '../utils/data/favorites';
