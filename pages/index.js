@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import getMovies from '../utils/data/movies';
-import { getFavorites, addFavorite, updateFavorite } from '../utils/data/favorites';
 import MovieCard from '../components/Card';
+import { getFavorites, addFavorite, updateFavorite } from '../utils/data/favorites';
 
 function Home() {
   const { user } = useAuth();
