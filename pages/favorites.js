@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import { getFavorites, deleteFavorite } from '../utils/data/favorites';
