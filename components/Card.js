@@ -14,7 +14,7 @@ export default function MovieCard({ movieObj, handleSubmit }) {
   };
 
   return (
-    <>
+    <div>
       <Card
         style={{
           width: '18rem',
@@ -44,7 +44,7 @@ export default function MovieCard({ movieObj, handleSubmit }) {
           <li>{movieObj.overview}</li>
         </ul>
       </Card>
-    </>
+    </div>
   );
 }
 
